@@ -1,0 +1,220 @@
+<html>
+
+	<head>
+		<style>
+
+			body{
+				background-color: #006303;
+background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
+			}
+
+			table {
+				margin-left: auto;
+				margin-right: auto;
+				width: 600px;
+				height: 1000px;
+				text-align:center;
+				background-color: #008c41;
+				border-radius:25px;
+background-image: url("https://www.transparenttextures.com/patterns/cross-scratches.png");
+			}
+			tr, td {
+				font-size: 120%;
+			}
+			input { 
+				color: brown;
+				width: 50%;
+				height: 50%;
+				border-radius: 25px;
+				font-size: 120%;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<form name="calculator">
+
+			<script>
+				var num1 = "";
+				var oper = "";
+				var num2 = "";
+
+				function insertNum(x) {
+
+					
+					if(oper == "") {
+						num1 = num1 + x;
+					}
+
+					else {
+						num2 = num2 + x;
+					}
+
+				
+
+					document.getElementById("display").value = num1 + oper + num2;
+					}
+				function insertOper(x) {
+					oper = x;
+					document.getElementById("display").value = num1 + oper + num2;
+					}
+				function calcAnswer() {
+					var answer = "";
+
+					if(oper == "+") {
+						answer = +num1 + +num2;
+					}
+					if(oper == "-") {
+						answer = +num1 - +num2;
+					}
+					if(oper == "*") {
+						answer = +num1 * +num2;
+					}
+					if(oper == "/") {
+						answer = +num1 / +num2;
+					}
+					document.getElementById("display").value = answer;
+					num1 = answer;
+					oper="";
+					num2="";
+				}
+					function clearMe() {
+					num1 = "";
+					num2 = "";
+					oper = "";
+						document.getElementById("display").value = "";
+	
+				}
+				function powerTwo () {
+
+					
+					var powertwo = +num1 * +num1
+
+					if(oper == "^2") 
+						answer = powertwo;
+
+					document.getElementById("display").value = powertwo;
+					num1 = powertwo;
+				}
+					
+				function averageThing () {
+	
+
+					var average = (+num1 + +num2) / 2
+
+					if(oper == "Av")
+						answer = average;
+
+					document.getElementById("display").value = average;
+					num1 = average;
+					
+				}
+				function powerThree () {
+					
+
+					var powerthree = +num1 * +num1 * +num1
+					
+					if(oper == "^3")
+						answer = powerthree;
+					document.getElementById("display").value = powerthree;
+					num1 = powerthree;
+					
+				}
+				function squareTwo () {
+					
+
+					var squareroot = Math.sqrt(+num1);
+						if(oper == "√2")
+							answer = squareroot;
+					document.getElementById("display").value = squareroot;
+					num1 = squareroot;
+					
+				}
+				function cubeThree () {
+					
+
+					var squarecube = Math.cbrt(+num1);
+						if(oper == "√3")
+							answer = squarecube;
+					document.getElementById("display").value = squarecube;
+					num1 = squarecube;
+					
+				}
+				function roundDown () {
+					
+
+					var rounddown = Math.round(+num1)
+						if(oper == "Round")
+							answer = rounddown;
+					document.getElementById("display").value = rounddown;
+					num1 = rounddown;
+					
+				}	
+				function randomNumber () {
+					
+					var random = Math.floor(Math.random() * 1000) + 1;
+			
+					if (oper = "Rnd") 
+						anaswer = random;
+					document.getElementById("display").value = random;
+					num1 = random
+					}
+
+			</script>
+
+			<table border="0">
+
+				<tr>
+				
+					<td colspan="5">
+						<input type="text" name="display" id="display" disabled>
+					</td>
+
+				</tr>
+ 
+				<tr> 
+					
+					<td><input type="button" name="one" value="1" onclick="insertNum('1')"></td>
+					<td><input type="button" name="two" value ="2" onclick="insertNum('2')"> </td>
+					<td><input type="button" name="three" value="3" onclick="insertNum('3')"> </td>
+					<td><input type="button" name="add" value="+" onclick="insertOper('+')"> </td>
+				</tr>
+				<tr>
+					<td><input type="button" name="four" value="4" onclick="insertNum('4')"></td>
+					<td><input type="button" name="five" value="5" onclick="insertNum('5')"> </td>
+					<td><input type="button" name="six" value="6" onclick="insertNum('6')"> </td>
+					<td><input type="button" name="subtract" value="-" onclick="insertOper('-')"> </td>
+				</tr>
+				<tr>
+					<td><input type="button" name="seven" value="7" onclick="insertNum('7')"> </td>
+					<td><input type="button" name="eight" value="8" onclick="insertNum('8')"> </td>
+					<td><input type="button" name="nine" value="9" onclick="insertNum('9')"> </td>
+					<td><input type="button" name="times" value="*" onclick="insertOper('*')" > </td>
+				</tr>
+				<tr>
+					<td><input type="button" id="clear" name="clear" value="C" onclick="clearMe()"> </td>
+					<td><input type="button" value="0" name="zero" onclick="insertNum('0')"> </td>
+					<td><input type="button" name="equals" value="=" onclick="calcAnswer()"> </td>
+					<td><input type="button" name="div" value="/" onclick="insertOper('/')"> </td>
+				</tr>
+				<tr>
+					<td><input type="button" name="square" value="^2" onclick="powerTwo()"> </td>
+					<td><input type="button" name="average" value="Av" onclick="averageThing('/2')"> </td>
+					<td><input type="button" name="nothing" value="^3"onclick="powerThree()" > </td>
+					<td><input type="button" name="√2" value="√2" onclick="squareTwo()"> </td>
+				</tr>
+				<tr>
+					<td><input type="button" name="cubethree" value="√3" onclick="cubeThree()"> </td>
+					<td><input type="button" name="rundo" value="Rnd" onclick="roundDown()"> </td>
+					<td><input type="button" name="Rd#" value="Rd#" onclick="randomNumber()"> </td>
+					<td><input type="button" name="decimal" value="." onclick="insertNum('.')"> </td>
+				</tr>
+			</table> 
+
+		</form>
+
+	</body>
+
+</html>
